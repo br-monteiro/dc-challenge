@@ -1,5 +1,6 @@
 import hashlib
 from functools import reduce
+from flask import jsonify
 
 def _acc(values):
   """
@@ -81,3 +82,10 @@ def gethash(value):
   Returns the hash (sha1) from a value
   """
   return hashlib.sha1(str(value).encode('utf-8')).hexdigest()
+
+
+def build_message(status, message='', data={}):
+  """
+  Retuns an instance of flask.wrappers.Response with the attributes status, message and data
+  """
+  return jsonify(status=status, message=message, data=data)
