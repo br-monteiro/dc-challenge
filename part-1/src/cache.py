@@ -11,7 +11,7 @@ def get_cache():
   global _cache
   if _cache:
     return _cache
-  _cache = redis.Redis(host='127.0.0.1', port=6379)
+  _cache = redis.Redis(host='redis', port=6379)
   return _cache
 
 def has_key(key):
