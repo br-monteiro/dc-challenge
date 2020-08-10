@@ -1,5 +1,5 @@
 from flask import Flask, request
-from src.utils import gethash, sortdict, build_message
+from src.utils import gethash, sortdict, build_message, isdevmode
 from src.cache import has_key, save_cache
 
 app = Flask(__name__)
@@ -16,4 +16,4 @@ def products():
     return build_message('success', 'saved product'), 200
 
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run(debug=isdevmode())
