@@ -1,4 +1,5 @@
 import hashlib
+from os import getenv
 from functools import reduce
 from flask import jsonify
 
@@ -89,3 +90,10 @@ def build_message(status, message='', data={}):
   Retuns an instance of flask.wrappers.Response with the attributes status, message and data
   """
   return jsonify(status=status, message=message, data=data)
+
+
+def isdevmode():
+  """
+  Check if the DEV-MODE is enabled
+  """
+  return getenv('DEV_MODE') == 'true'
