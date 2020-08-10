@@ -4,9 +4,9 @@ from flask import jsonify
 
 def _acc(values):
   """
-  Returs the accmulated from values
+  Returs the accumulated from values
   """
-  return reduce((lambda i, v: i + toint(v)), values, 0)
+  return reduce(lambda i, v: i + toint(v), values, 0)
 
 def toint(value):
   """
