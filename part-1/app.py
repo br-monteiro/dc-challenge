@@ -4,7 +4,7 @@ from .src.cache import has_key, save_cache
 
 app = Flask(__name__)
 
-@app.route('/products', methods=['POST'])
+@app.route('/v1/products', methods=['POST'])
 def products():
   body = request.get_json()
   body_hash = gethash(sortdict(body))
